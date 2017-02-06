@@ -1,0 +1,4 @@
+bw = imread('text.png');
+bw2 = imcomplement(bw);
+subplot(1,2,1),imshow(bw)
+subplot(1,2,2),imshow(bw2)
