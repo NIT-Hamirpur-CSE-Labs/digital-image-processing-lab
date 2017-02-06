@@ -1,4 +1,13 @@
+//program 1 below
+
 bw = imread('text.png');
 bw2 = imcomplement(bw);
 subplot(1,2,1),imshow(bw)
 subplot(1,2,2),imshow(bw2)
+
+
+//program 2 below
+
+I = imread('glass.png');
+J = imcomplement(I);
+imshow(I), figure, imshow(J)
