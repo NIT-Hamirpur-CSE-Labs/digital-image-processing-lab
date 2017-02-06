@@ -1,0 +1,39 @@
+start_row = 1478;
+end_row = 2246;
+meters_per_pixel = 1;
+rows = [start_row meters_per_pixel end_row];
+start_col = 349;
+end_col = 1117;
+cols = [start_col meters_per_pixel end_col];
+img  = imread('boston.tif','PixelRegion',{rows,cols});
+figure; 
+hImg = imshow(img);
+title('1 meter per pixel');
+ 
+% Specify initial position of distance tool on Harvard Bridge.
+hline = imdistline(gca,[271 471],[108 650]);
+api = iptgetapi(hline);
+api.setLabelTextFormatter('%02.0f meters');
+ 
+% Repeat process but work with a 2 meter per pixel sampled image. Verify
+% that the same distance is obtained.
+meters_per_pixel = 2;
+rows = [start_row meters_per_pixel end_row];
+cols = [start_col meters_per_pixel end_col];
+img  = imread('boston.tif','PixelRegion',{rows,cols});
+figure;    
+hImg = imshow(img);
+title('2 meters per pixel');    
+     
+% Convert XData and YData to meters using conversion factor.
+XDataInMeters = get(hImg,'XData')*meters_per_pixel; 
+YDataInMeters = get(hImg,'YData')*meters_per_pixel;
+     
+% Set XData and YData of image to reflect desired units.    
+set(hImg,'XData',XDataInMeters,'YData',YDataInMeters);    
+set(gca,'XLim',XDataInMeters,'YLim',YDataInMeters);
+     
+% Specify initial position of distance tool on Harvard Bridge.
+hline = imdistline(gca,[271 471],[108 650]);
+api = iptgetapi(hline);
+api.setLabelTextFormatter('%02.0f meters');
