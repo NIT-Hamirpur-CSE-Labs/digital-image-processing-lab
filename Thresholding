@@ -1,0 +1,12 @@
+//program 1 below
+
+load trees
+BW = im2bw(X,map,0.4);
+imshow(X,map), figure, imshow(BW)
+
+//program 2 below
+
+I = imread('coins.png');
+level = graythresh(I);
+BW = im2bw(I,level);
+imshow(BW)
