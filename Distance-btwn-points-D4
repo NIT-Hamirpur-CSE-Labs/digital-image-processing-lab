@@ -1,0 +1,19 @@
+bw = zeros(200,200);
+bw(50,50) = 1; bw(50,150) = 1; bw(150,100) = 1;
+D1 = bwdist(bw,'euclidean');
+D2 = bwdist(bw,'cityblock');
+D3 = bwdist(bw,'chessboard');
+D4 = bwdist(bw,'quasi-euclidean');
+RGB1 = repmat(mat2gray(D1), [1 1 3]);
+RGB2 = repmat(mat2gray(D2), [1 1 3]);
+RGB3 = repmat(mat2gray(D3), [1 1 3]);
+RGB4 = repmat(mat2gray(D4), [1 1 3]);
+figure
+subplot(2,2,1), imshow(RGB1), title('Euclidean')
+hold on, imcontour(D1)
+subplot(2,2,2), imshow(RGB2), title('City block')
+hold on, imcontour(D2)
+subplot(2,2,3), imshow(RGB3), title('Chessboard')
+hold on, imcontour(D3)
+subplot(2,2,4), imshow(RGB4), title('Quasi-Euclidean')
+hold on, imcontour(D4)
