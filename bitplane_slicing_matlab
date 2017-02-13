@@ -1,0 +1,9 @@
+A=imread('cameraman.tif');
+B=bitget(A,1); figure, imshow(logical(B));title('Bit plane 1');imwrite(uint8(B), 'bp0.png');
+B=bitget(A,2); figure, imshow(logical(B));title('Bit plane 2');imwrite(uint8(B), 'bp1.png');
+B=bitget(A,3); figure, imshow(logical(B));title('Bit plane 3');imwrite(uint8(B), 'bp2.png');
+B=bitget(A,4); figure, imshow(logical(B));title('Bit plane 4');imwrite(uint8(B), 'bp3.png');
+B=bitget(A,5); figure, imshow(logical(B));title('Bit plane 5');imwrite(uint8(B), 'bp4.png');
+B=bitget(A,6); figure, imshow(logical(B));title('Bit plane 6');imwrite(uint8(B), 'bp5.png');
+B=bitget(A,7); figure, imshow(logical(B));title('Bit plane 7');imwrite(uint8(B), 'bp6.png');
+B=bitget(A,8); figure, imshow(logical(B));title('Bit plane 8');imwrite(uint8(B), 'bp7.png'); 
