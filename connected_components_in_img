@@ -1,0 +1,27 @@
+BW = cat(3, [1 1 0; 0 0 0; 1 0 0],...
+            [0 1 0; 0 0 0; 0 1 0],...
+            [0 1 1; 0 0 0; 0 0 1]);
+            
+            
+CC = bwconncomp(BW)
+
+
+S = regionprops(CC,'Centroid')
+
+
+BW = imread('text.png');
+imshow(BW)
+
+
+CC = bwconncomp(BW)
+
+
+numPixels = cellfun(@numel,CC.PixelIdxList);
+[biggest,idx] = max(numPixels);
+BW(CC.PixelIdxList{idx}) = 0;
+
+
+figure
+imshow(BW)
+
+
