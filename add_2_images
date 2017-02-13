@@ -1,0 +1,15 @@
+X = uint8([ 255 0 75; 44 225 100]);
+Y = uint8([ 50 50 50; 50 50 50 ]);
+Z = imadd(X,Y)
+
+
+I = imread('rice.png');
+J = imread('cameraman.tif');
+K = imadd(I,J,'uint16');
+imshow(K,[])
+
+
+I = imread('rice.png');
+J = imadd(I,50);
+subplot(1,2,1), imshow(I) 
+subplot(1,2,2), imshow(J)
